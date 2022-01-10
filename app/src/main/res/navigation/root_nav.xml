@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_nav"
+    app:startDestination="@id/days">
+
+    <fragment
+        android:id="@+id/days"
+        android:name="com.vitap.timetable.ui.days.Days"
+        android:label="days"
+        tools:layout="@layout/days" >
+        <action
+            android:id="@+id/toCourses"
+            app:destination="@id/courses"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/fade_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/courses"
+        android:name="com.vitap.timetable.ui.courses.Courses"
+        android:label="courses"
+        tools:layout="@layout/courses" >
+        <argument
+            android:name="day"
+            app:argType="string" />
+        <action
+            android:id="@+id/toAddCourse"
+            app:destination="@id/addCourse"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/fade_out"/>
+    </fragment>
+    <fragment
+        android:id="@+id/addCourse"
+        android:name="com.vitap.timetable.ui.AddCourse"
+        android:label="AddCourse" >
+        <argument
+            android:name="day"
+            app:argType="string" />
+    </fragment>
+</navigation>
